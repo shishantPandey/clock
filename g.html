@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      position: relative;
+      margin: auto;
+      height: 40vw;
+      width: 40vw;
+      background: url("r.png");
+      background-size: 100%;
+    }
+    .abc {
+      background-color: black;
+      transform-origin: bottom;
+      position: absolute;
+    }
+    #hr {
+      width: 1.8%;
+      height: 25%;
+      top: 25%;
+      left: 48.85%;
+      opacity: 0.8;
+    }
+    #min {
+      width: 1.6%;
+      height: 30%;
+      top: 19%;
+      left: 48.9%;
+      opacity: 0.8;
+    }
+    #sec {
+      width: 1%;
+      height: 40%;
+      top: 9%;
+      left: 49.25%;
+      opacity: 0.8;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="abc" id="hr"></div>
+      <div class="abc" id="min"></div>
+      <div class="abc" id="sec"></div>
+    </div>
+    <h1 style="text-align: center">SHISHANT PANDEY</h1>
+  </body>
+  <script>
+    setInterval(() => {
+      let d = new Date();
+      let htime = d.getHours();
+      let mtime = d.getMinutes();
+      let stime = d.getSeconds();
+      let hrot = 30 * htime + mtime / 60 + stime / 3600;
+      let mrot = 6 * mtime + stime / 10;
+      let srot = 6 * stime;
+
+      let h = document.getElementById("hr");
+      let m = document.getElementById("min");
+      let s = document.getElementById("sec");
+      h.style.transform = `rotate(${hrot}deg)`;
+      m.style.transform = `rotate(${mrot}deg)`;
+      s.style.transform = `rotate(${srot}deg)`;
+    }, 1000);
+  </script>
+</html>
